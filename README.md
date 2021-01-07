@@ -1,4 +1,4 @@
-# Emojified Tweets Museum
+# Emojified Tweets Wall of Fame
 
 A Django application that allows users to emojify tweets via our `twitter-emojify-api`, submit the results, and vote/comment on the funniest submissions.
 
@@ -50,7 +50,21 @@ To set up the pre-commit hooks, install the packages as shown above then run:
 $ pre-commit install
 ```
 
+#### Making migrations
+
+If you made changes to any schemas or added any new tables, make sure to create migration files with:
+
+```sh
+$ python manage.py makemigrations
+```
+
 #### Running the app
+
+To run migrations, run:
+
+```sh
+$ python manage.py migrate
+```
 
 To start the Django app, run:
 
