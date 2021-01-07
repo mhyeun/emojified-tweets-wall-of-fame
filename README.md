@@ -50,6 +50,14 @@ To set up the pre-commit hooks, install the packages as shown above then run:
 $ pre-commit install
 ```
 
+#### Making migrations
+
+If you made changes to any schemas or added any new tables, make sure to create migration files with:
+
+```sh
+$ python manage.py makemigrations
+```
+
 #### Running the app
 
 To run migrations, run:
@@ -62,12 +70,4 @@ To start the Django app, run:
 
 ```sh
 $ python manage.py runserver
-```
-
-#### Making migrations
-
-If you made changes to any schemas or added any new tables, make sure to create migration files with:
-
-```sh
-$ python manage.py makemigrations
 ```
