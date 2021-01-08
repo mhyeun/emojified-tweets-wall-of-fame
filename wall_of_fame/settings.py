@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     "emojified_tweets_wall_of_fame.apps.EmojifiedTweetsWallOfFameConfig",
 ]
 
+# SESSION_COOKIE_SECURE = True
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
