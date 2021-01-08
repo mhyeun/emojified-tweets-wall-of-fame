@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 
 # Made foreign key relation with no cascade delete since
 # we will just replace username with [DELETED]
+
+
 class Tweet(models.Model):
     content = models.CharField(max_length=512)
     votes = models.IntegerField()
