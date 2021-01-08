@@ -49,6 +49,10 @@ def health(response):
     return HttpResponse(json.dumps(success_message))
 
 
+def signup(request):
+    return render(request, "emojified_tweets_wall_of_fame/signup.html")
+
+
 def authentication(request):
     error = {"error": True, "fields": [], "message": "Invalid username or password."}
 

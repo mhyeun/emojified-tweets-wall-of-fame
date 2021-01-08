@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css"
           href="{% static 'card.css' %}">
     <link rel="stylesheet" type="text/css"
-          href="{% static 'login.css' %}">
+          href="{% static 'signup.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   </head>
@@ -16,7 +16,7 @@
       <img src="{% static 'logo.png' %}" alt="">
       <div class="card">
         <div class="container">
-          <h1>Log in to Tweetmoji</h1>
+          <h1>Sign up to Tweetmoji</h1>
           <form action="{% url 'authentication' %}" method="post">
             {% csrf_token %}
             <div class="text-container">
@@ -25,9 +25,13 @@
             </div>
             <div class="text-container">
               <label for="password">Password:</label><br>
+              <input type="password" id="password" name="password"><br>
+            </div>
+            <div class="text-container">
+              <label for="password">Type password again:</label><br>
               <input type="password" id="password" name="password"><br><br>
             </div>
-            <input type="submit" value="Log in">
+            <input type="submit" value="Sign up">
             {% if error %}
             <p>{{ error.message }}</p>
             {% endif %}

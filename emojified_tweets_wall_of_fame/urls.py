@@ -7,4 +7,5 @@ urlpatterns = [
     path("wall-of-shame", views.wall_of_shame, name="wall_of_shame"),
     path("health", views.health, name="health"),
     path("authentication", views.authentication, name="authentication"),
+    path("signup", views.signup, name="signup"),
 ]

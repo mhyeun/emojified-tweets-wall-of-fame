@@ -17,6 +17,7 @@ body {
   font-size: 1.8vw;
   font-weight: 400;
   padding: 11%;
+  padding-bottom: 8%;
   color: black;
 }
 
@@ -33,7 +34,7 @@ select {
   padding-left: 10px;
   width: 100%;
   font-size: 1vw;
-  margin: 10px 0 40px 0;
+  margin: 10px 0 15px 0;
   display: inline-block;
   background: #c0deed;
   border: none;
@@ -71,9 +72,9 @@ input[type="submit"]:hover {
   transform: translate(-50%, -50%);
 }
 
-.login-page p{
-  color:red;
-  padding:3vh;
+.login-page p {
+  color: red;
+  padding: 3vh;
 }
 
 @media screen and (max-width: 992px) {
@@ -101,7 +102,7 @@ input[type="submit"]:hover {
   select {
     width: 100%;
     font-size: 6vw;
-    margin: 0px 0 50px 0;
+    margin: 0 0 50px 0;
     display: inline-block;
     background: #c0deed;
     border: none;
