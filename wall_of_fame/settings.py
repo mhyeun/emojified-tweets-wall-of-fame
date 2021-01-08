@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     "emojified_tweets_wall_of_fame.apps.EmojifiedTweetsWallOfFameConfig",
 ]
 
-# SESSION_COOKIE_SECURE = True
-# SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_SECURE = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -100,6 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
+AUTH_USER_MODEL = "emojified_tweets_wall_of_fame.CustomUser"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
