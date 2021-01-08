@@ -1,0 +1,55 @@
+body {
+  background: #1DA1F2;
+}
+
+.text-container {
+  font-weight: 500;
+  text-align: left;
+  margin: 0 1.8vw;
+}
+
+input[type="text"],
+[type="password"],
+select {
+  width: 100%;
+  font-size: 1.3vw;
+  margin: 0px 0 50px 0;
+  display: inline-block;
+  background: #c0deed;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 85%;
+  font-size: 1.4vw;
+  background: #1da1f2;
+  color: white;
+  padding: 3%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0073ca;
+}
+
+label[for="username"],
+[for="password"] {
+  font-size: 1.4vw;
+}
+
+.card h1 {
+  font-size: 1.8vw;
+  font-weight: 400;
+  padding: 11%;
+  color: black;
+}
+
+.login-page img {
+  position: absolute;
+  top: 0px;
+  height: 20vh;
+}
