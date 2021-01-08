@@ -3,10 +3,10 @@ from django.http import HttpResponse
 import json
 
 
-def index(request):
-    return HttpResponse("This is the emojified_tweets_wall_of_fame index.")
+def index(response):
+    return render(response, "emojified_tweets_wall_of_fame/base.html", {})
 
 
-def health(request):
+def health(response):
     success_message = {"success": True}
-    return HttpResponse(json.dumps(success_message))
+    return render(response, "emojified_tweets_wall_of_fame/login.html", {})

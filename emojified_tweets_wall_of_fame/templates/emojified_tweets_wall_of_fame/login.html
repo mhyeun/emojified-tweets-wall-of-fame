@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'main.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'card.css' %}">
+  </head>
+  <body>
+    <div class="card">
+      <div class="container">
+        <h4>Log in to Tweetmoji</h4>
+        <form action="/action_page.php">
+          <label for="username">Username:</label><br>
+          <input type="text" id="username" name="username"><br>
+          <label for="password">Password:</label><br>
+          <input type="text" id="password" name="password"><br><br>
+          <input type="submit" value="Log in">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
