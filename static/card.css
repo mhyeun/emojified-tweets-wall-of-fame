@@ -9,7 +9,6 @@
   background: #c0deed;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
-  transition: 0.3s;
 }
 
 .card:hover {
@@ -32,20 +31,21 @@
   border-radius: 12px;
 }
 
-input[type=text], select {
+input[type="text"],
+select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  background: #C0DEED;
+  background: #c0deed;
   border: 1px solid #ccc;
   border-radius: 12px;
   box-sizing: border-box;
 }
 
-input[type=submit] {
+input[type="submit"] {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -54,6 +54,6 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
