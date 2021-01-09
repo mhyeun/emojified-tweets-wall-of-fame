@@ -146,6 +146,7 @@ def authentication(request):
     return render(request, "emojified_tweets_wall_of_fame/authentication.html")
 
 
+@login_required(login_url="/authentication")
 def emojify(request):
     TWITTER_API_URL = "http://mhyeun.pythonanywhere.com/emojify-tweets"
     if request.method == "POST":
@@ -157,10 +158,19 @@ def emojify(request):
             params={"username": twitter_username, "tweets": number_of_tweets},
         )
 
+        emojified_tweets_list = json.loads(emojified_tweets.text)
+
+        emojified_tweets_to_add = []
+        for emojified_tweets in emojified_tweets_list:
+            tweet = Tweet(content=emojified_tweets, votes=0, poster=request.user)
+            emojified_tweets_to_add.append(tweet)
+
+        Tweet.objects.bulk_create(emojified_tweets_to_add)
+
         return render(
             request,
             "emojified_tweets_wall_of_fame/emojifytweets.html",
-            {"emojified_tweets": json.loads(emojified_tweets.text)},
+            {"emojified_tweets": emojified_tweets_list},
         )
     return render(request, "emojified_tweets_wall_of_fame/emojify.html")
 
