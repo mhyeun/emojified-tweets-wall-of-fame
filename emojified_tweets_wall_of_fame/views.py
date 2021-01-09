@@ -74,7 +74,7 @@ def wall_of_shame(request):
 
     return render(
         request,
-        "emojified_tweets_wall_of_fame/wall_of_shame.html",
+        "emojified_tweets_wall_of_fame/wall_of_fame.html",
         {"tweets": tweets, "voted_tweets": voted_tweets},
     )
 
