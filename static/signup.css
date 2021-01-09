@@ -49,6 +49,8 @@ input[type="submit"] {
   width: 85%;
   font-size: 1.4vw;
   margin-top: 2%;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
   background: #1da1f2;
   color: white;
   padding: 5%;

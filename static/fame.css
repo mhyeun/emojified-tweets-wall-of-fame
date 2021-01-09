@@ -107,7 +107,19 @@ select {
   display:flex;
 }
 
-.like-dislike h3{
+.morethan{
+  color: rgb(4, 172, 250);
+  font-size: 1vw;
+  margin-top: px;
+}
+
+.lessthan{
+  color: rgb(240, 18, 18);
+  font-size: 1vw;
+  margin-top: px;
+}
+
+.equal{
   color: black;
   font-size: 1vw;
   margin-top: px;

@@ -20,6 +20,7 @@
     <ul id="dropdown1" class="dropdown-content">
       <li>{% block nav-contact %}<a href="{% url 'wall_of_fame' %}">Wall of Fame</a>{% endblock %}</li>
       <li>{% block nav-home %}<a href="{% url 'wall_of_shame' %}">Wall of Shame</a>{% endblock %}</li>
+      <li><a href="{% url 'emojify' %}">Emojify</a></li>
     </ul>
     <nav>
       <div class="nav-wrapper">
@@ -42,7 +43,9 @@
             </div>
             <div class="text-container">
               <label for="number">Select the amount of tweets you want to emojify (most recent):</label><br>
-              <input type="number" id="number_of_tweets" name="number_of_tweets" min="1" max="20" required><br>
+              <input type="number" id="number_of_tweets" name="number_of_tweets" min="1" max="20" required
+              oninvalid="this.setCustomValidity('Enter Number Here')"
+              oninput="this.setCustomValidity('')"/><br>
             </div>
             <input type="submit" value="Emojify">
             {% if error %}

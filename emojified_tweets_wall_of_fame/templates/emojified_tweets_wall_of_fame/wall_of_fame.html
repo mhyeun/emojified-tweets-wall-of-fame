@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wall of Fame</title>
+    <title>Tweetmoji</title>
     {% load static %}
     <link rel="stylesheet" type="text/css"
           href="{% static 'fame.css' %}">
@@ -36,7 +36,7 @@
         <div class="card">
           <div class="card-container">
             <h1>{{ tweet.content }}</h1>
-            <h2>{{ tweet.poster_id }}</h2>
+            <i><h2>Posted by: {{ tweet.poster_id }}</h2></i>
             <hr>
             <div class="like-dislike">
               <form action="{% url 'like' %}" method="post">
@@ -47,14 +47,15 @@
                   <input type="image" src="{% static 'thumbs-up.svg' %}" name="tweet_id" value="{{tweet.id}}" class="btTxt submit" id="saveForm" style="width: 50px;"/>
                 </div>
               </form>
-              {% if tweet.votes > 0 %}
-                <h3>{{ tweet.votes }}</h3>
-              {% endif %}
-              {% if tweet.votes > 0 %}
-                <h3>{{ tweet.votes }}</h3>
-              {% endif %}
-              <form action="{% url 'dislike' %}" method="post">
-                {% csrf_token %}
+                {% if tweet.votes > 0 %}
+                <h3 class="morethan">{{ tweet.votes }}</h3>
+                {% elif tweet.votes == 0 %}
+                <h3 class="equal">{{ tweet.votes }}</h3>
+                {% elif tweet.votes < 0 %}
+                <h3 class="lessthan">{{ tweet.votes }}</h3>
+                {% endif %}
+                <form action="{% url 'dislike' %}" method="post">
+                  {% csrf_token %}
                 <div class="dislike">
                   <input type="hidden" name="next" value="{{request.path}}">
                   <input type="hidden" name="tweet_id" value="{{tweet.id}}" />

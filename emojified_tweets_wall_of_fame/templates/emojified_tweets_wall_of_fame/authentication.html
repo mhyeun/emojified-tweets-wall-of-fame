@@ -12,7 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   </head>
   <body>
+
     <div class="login-page">
+
       <img src="{% static 'logo.png' %}" alt="">
       <div class="card">
         <div class="container">
@@ -21,13 +23,18 @@
             {% csrf_token %}
             <div class="text-container">
               <label for="username">Username:</label>
-              <input type="text" id="username" name="username"><br>
+              <input type="text" id="username" name="username" required
+              oninvalid="this.setCustomValidity('Enter Username Here')"
+              oninput="this.setCustomValidity('')"/><br>
             </div>
             <div class="text-container">
               <label for="password">Password:</label><br>
-              <input type="password" id="password" name="password"><br><br>
+              <input type="password" id="password" name="password" required
+              oninvalid="this.setCustomValidity('Enter Password Here')"
+              oninput="this.setCustomValidity('')"/><br>
             </div>
-            <input type="submit" value="Log in">
+            <input type="submit" value="Log in"><br>
+            <a href="/signup" style="text-decoration:none">Or if you dont have an account...</a>
             {% if error %}
             <p>{{ error.message }}</p>
             {% endif %}

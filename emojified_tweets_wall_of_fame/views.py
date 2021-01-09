@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
 
@@ -12,7 +12,6 @@ import json
 
 def wall_of_fame(request):
     tweets_list = Tweet.objects.all().order_by("-votes")
-
     tweets = []
     for tweet in tweets_list:
         tweet_dict = {
@@ -200,3 +199,8 @@ def dislike(request):
         relation.save()
 
         return HttpResponseRedirect(next)
+
+
+def logout(request):
+    logout(request)
+    return render(request, "emojified_tweets_wall_of_fame/wall_of_fame.html")

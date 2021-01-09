@@ -21,19 +21,27 @@
             {% csrf_token %}
             <div class="text-container">
               <label for="username">Username:</label>
-              <input type="text" id="username" name="username"><br>
+              <input type="text" id="username" name="username" required
+              oninvalid="this.setCustomValidity('Enter Username Here')"
+              oninput="this.setCustomValidity('')"/><br>
             </div>
             <div class="text-container">
               <label for="password">Password:</label><br>
-              <input type="password" id="password" name="password"><br>
+              <input type="password" id="password" name="password" required
+              oninvalid="this.setCustomValidity('Enter Password Here')"
+              oninput="this.setCustomValidity('')"/><br>
             </div>
             <div class="text-container">
               <label for="password">Type password again:</label><br>
-              <input type="password" id="password_retry" name="password_retry"><br>
+              <input type="password" id="password_retry" name="password_retry" required
+              oninvalid="this.setCustomValidity('Enter Password Here')"
+              oninput="this.setCustomValidity('')"/><br>
             </div>
             <div class="text-container">
               <label for="email">Email:</label><br>
-              <input type="email" id="email" name="email"><br><br>
+              <input type="email" id="email" name="email" required
+              oninvalid="this.setCustomValidity('Enter Email Here')"
+              oninput="this.setCustomValidity('')"/><br><br>
             </div>
             <input type="submit" value="Sign up">
             {% if error %}
