@@ -23,14 +23,14 @@ body {
 
 label[for=username],[for=password],[for=email] {
   font-size: 0.9vw;
-  padding-bottom: 10px;
+  margin-bottom: 8vh;
 }
 
 input[type=text], [type=password], [type=email] {
   padding: 10px;
   padding-left: 10px;
   width: 100%;
-  font-size: 1vw;
+  font-size: 2vh;
   margin: 10px 0 15px 0;
   display: inline-block;
   background: #c0deed;
@@ -81,7 +81,7 @@ input[type="submit"]:hover {
 
 @media screen and (max-width: 992px) {
   .login-page form {
-    margin-top: 100px;
+    margin-top: 3vh;
   }
 
   .login-page h1 {
@@ -95,16 +95,16 @@ input[type="submit"]:hover {
   }
 
   label[for="username"],
-  [for="password"] {
-    font-size: 7vw;
+  [for="password"],
+  [for="email"] {
+    font-size: 2vh;
   }
 
   input[type="text"],
   [type="password"],
-  select {
+  [type="email"] {
     width: 100%;
-    font-size: 6vw;
-    margin: 0 0 50px 0;
+    font-size: 2vh;
     display: inline-block;
     background: #c0deed;
     border: none;
@@ -114,10 +114,9 @@ input[type="submit"]:hover {
 
   input[type="submit"] {
     width: 85%;
-    font-size: 4vw;
+    font-size: 2vh;
     background: #1da1f2;
     color: white;
-    padding: 5%;
     border: none;
     border-radius: 10px;
     cursor: pointer;
