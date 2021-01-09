@@ -39,10 +39,12 @@
             <h2>{{ tweet.poster_id }}</h2>
             <hr>
             <div class="like-dislike">
-              <form method="post">
+              <form action="{% url 'like' %}" method="post">
                 {% csrf_token %}
                 <div class="like">
-                  <input type="image" src="{% static 'thumbs-up.svg' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
+                  <input type="hidden" name="next" value="{{request.path}}">
+                  <input type="hidden" name="tweet_id" value="{{tweet.id}}" />
+                  <input type="image" src="{% static 'thumbs-up.svg' %}" name="tweet_id" value="{{tweet.id}}" class="btTxt submit" id="saveForm" style="width: 50px;"/>
                 </div>
               </form>
               {% if tweet.votes > 0 %}
@@ -51,9 +53,12 @@
               {% if tweet.votes > 0 %}
                 <h3>{{ tweet.votes }}</h3>
               {% endif %}
-              <form method="post">
+              <form action="{% url 'dislike' %}" method="post">
+                {% csrf_token %}
                 <div class="dislike">
-                  <input type="image" src="{% static 'thumbs-down.svg' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
+                  <input type="hidden" name="next" value="{{request.path}}">
+                  <input type="hidden" name="tweet_id" value="{{tweet.id}}" />
+                  <input type="image" src="{% static 'thumbs-down.svg' %}" name="tweet_id" value="{{tweet.id}}" class="btTxt submit" id="saveForm" style="width: 50px;"/>
                 </div>
               </form>
             </div>

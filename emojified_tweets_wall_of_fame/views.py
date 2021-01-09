@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect, get_list_or_404
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import make_password
-from .models import Tweet, CustomUser
+from django.contrib.auth.decorators import login_required
 
+from .models import Tweet, CustomUser, CustomUserToTweet
+
+import requests
 import json
 
 
@@ -22,8 +25,23 @@ def wall_of_fame(request):
             break
         tweets.append(tweet_dict)
 
+    voted_tweets = []
+    if request.user:
+        custom_user_to_tweets_list = CustomUserToTweet.objects.filter(
+            voter=request.user
+        )
+
+        for custom_user_to_tweets in custom_user_to_tweets_list:
+            tweet_dict = {
+                "id": custom_user_to_tweets.tweet.pk,
+                "is_upvote": custom_user_to_tweets.is_upvote,
+            }
+            voted_tweets.append(tweet_dict)
+
     return render(
-        request, "emojified_tweets_wall_of_fame/wall_of_fame.html", {"tweets": tweets}
+        request,
+        "emojified_tweets_wall_of_fame/wall_of_fame.html",
+        {"tweets": tweets, "voted_tweets": voted_tweets},
     )
 
 
@@ -42,8 +60,23 @@ def wall_of_shame(request):
             break
         tweets.append(tweet_dict)
 
+    voted_tweets = []
+    if request.user:
+        custom_user_to_tweets_list = CustomUserToTweet.objects.filter(
+            voter=request.user
+        )
+
+        for custom_user_to_tweets in custom_user_to_tweets_list:
+            tweet_dict = {
+                "id": custom_user_to_tweets.tweet.pk,
+                "is_upvote": custom_user_to_tweets.is_upvote,
+            }
+            voted_tweets.append(tweet_dict)
+
     return render(
-        request, "emojified_tweets_wall_of_fame/wall_of_shame.html", {"tweets": tweets}
+        request,
+        "emojified_tweets_wall_of_fame/wall_of_shame.html",
+        {"tweets": tweets, "voted_tweets": voted_tweets},
     )
 
 
@@ -114,8 +147,56 @@ def authentication(request):
 
 
 def emojify(request):
+    TWITTER_API_URL = "http://localhost:5000/emojify-tweets"
+
+    if request.method == "POST":
+        twitter_username = request.POST["twitter_username"]
+        number_of_tweets = request.POST["number_of_tweets"]
+
+        emojified_tweets = requests.get(
+            TWITTER_API_URL,
+            params={"username": twitter_username, "tweets": number_of_tweets},
+        )
+
+        print(emojified_tweets.text)
+        return render(
+            request,
+            "emojified_tweets_wall_of_fame/emojifytweets.html",
+            {"emojified_tweets": emojified_tweets.text},
+        )
     return render(request, "emojified_tweets_wall_of_fame/emojify.html")
 
 
+@login_required(login_url="/authentication")
 def emojifytweets(request):
     return render(request, "emojified_tweets_wall_of_fame/emojifytweets.html")
+
+
+@login_required(login_url="/authentication")
+def like(request):
+    if request.method == "POST":
+        next = request.POST["next"]
+        tweet_id = request.POST["tweet_id"]
+        tweet = Tweet.objects.get(id=tweet_id)
+
+        relation = CustomUserToTweet.objects.create(
+            voter=request.user, tweet=tweet, is_upvote=True
+        )
+        relation.save()
+
+        return HttpResponseRedirect(next)
+
+
+@login_required(login_url="/authentication")
+def dislike(request):
+    if request.method == "POST":
+        next = request.POST["next"]
+        tweet_id = request.POST["tweet_id"]
+        tweet = Tweet.objects.get(id=tweet_id)
+
+        relation = CustomUserToTweet.objects.create(
+            voter=request.user, tweet=tweet, is_upvote=False
+        )
+        relation.save()
+
+        return HttpResponseRedirect(next)

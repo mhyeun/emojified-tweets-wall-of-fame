@@ -32,17 +32,17 @@
       <div class="card">
         <div class="container">
           <h1>Emojify your tweet</h1>
-          <form action="{% url 'emojifytweets' %}" method="post">
+          <form action="{% url 'emojify' %}" method="post">
             {% csrf_token %}
             <div class="text-container">
               <label for="username">Type the @ of the person you want to emojify:</label>
-              <input type="text" id="username" name="username" required
+              <input type="text" id="twitter_username" name="twitter_username" required
               oninvalid="this.setCustomValidity('Enter Username Here')"
               oninput="this.setCustomValidity('')"/><br>
             </div>
             <div class="text-container">
               <label for="number">Select the amount of tweets you want to emojify (most recent):</label><br>
-              <input type="number" id="number" name="number" min="1" max="20" required><br>
+              <input type="number" id="number_of_tweets" name="number_of_tweets" min="1" max="20" required><br>
             </div>
             <input type="submit" value="Emojify">
             {% if error %}
