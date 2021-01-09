@@ -10,4 +10,6 @@ urlpatterns = [
     path("signup", views.signup, name="signup"),
     path("emojify", views.emojify, name="emojify"),
     path("emojifytweets", views.emojifytweets, name="emojifytweets"),
+    path("like", views.like, name="like"),
+    path("dislike", views.dislike, name="dislike"),
 ]

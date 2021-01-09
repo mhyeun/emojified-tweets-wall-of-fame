@@ -26,3 +26,9 @@ class Tweet(models.Model):
 
     def getDescription(self):
         return self.content + " with " + self.votes + " votes."
+
+
+class CustomUserToTweet(models.Model):
+    voter = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    tweet = models.ForeignKey(Tweet, on_delete=models.CASCADE)
+    is_upvote = models.BooleanField()
