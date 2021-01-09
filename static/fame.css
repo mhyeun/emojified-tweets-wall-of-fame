@@ -159,6 +159,7 @@ h3 {
     width: 50vw;
     height: 40vh;
   }
+
   .card-container h1 {
     word-wrap: break-word;
     overflow-y: scroll;
@@ -168,6 +169,7 @@ h3 {
     color: black;
     font-size: 3vw;
   }
+
   input[type="image"],
   select {
     height: 3vw;
@@ -200,9 +202,7 @@ h3 {
     margin-top: 5%;
     margin-bottom: 0;
   }
-  a {
-    font-size: 1vw;
-  }
+
   .dropdown-trigger,
   .material-icons {
     font-size: 3vw;

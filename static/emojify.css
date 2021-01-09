@@ -70,7 +70,7 @@ input[type="submit"]:hover {
   background-color: #0073ca;
 }
 
-@media screen and (max-width: 992px) {
+@media only screen and (max-width: 1275px) {
   .emojify-page form {
     margin-top: 100px;
   }
@@ -109,5 +109,10 @@ input[type="submit"]:hover {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+  }
+
+  .dropdown-trigger,
+  .material-icons {
+    font-size: 3vw;
   }
 }
