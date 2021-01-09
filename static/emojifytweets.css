@@ -87,7 +87,7 @@ nav ul a {
   background: #555;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
   .card {
     font-family: 'Roboto', sans-serif;
     position: fixed;
@@ -99,5 +99,10 @@ nav ul a {
     background: #c0deed;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
+  }
+
+  .dropdown-trigger,
+  .material-icons {
+    font-size: 3vw;
   }
 }

@@ -34,12 +34,13 @@ nav ul a {
 label[for="username"],
 [for="number"] {
   padding-bottom: 30px;
+  font-size: 0.7vw;
 }
 
-input[type="username"],
+input[type="text"],
 [type="number"] {
   width: 100%;
-  font-size: 1vw;
+  font-size: 1vw !important;
   display: inline-block;
   background: #c0deed;
   border: none;
@@ -70,29 +71,30 @@ input[type="submit"]:hover {
   background-color: #0073ca;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
   .emojify-page form {
-    margin-top: 100px;
+    margin-top: 3vh;
   }
 
   .emojify-page h1 {
-    display: none;
+    font-size: 4vw
   }
 
   .text-container {
     font-weight: 500;
     text-align: left;
     margin: 0 6vw;
+    margin-bottom: 5vh;
   }
 
   label[for="number"],[for="username"] {
     font-size: 3vw;
   }
 
-  input[type="username"],[type="number"] {
+  input[type="text"],[type="number"] {
     width: 100%;
     font-size: 6vw;
-    margin: 0 0 50px 0;
+    margin-bottom: 50px;
     display: inline-block;
     background: #c0deed;
     border: none;
@@ -101,6 +103,7 @@ input[type="submit"]:hover {
   }
 
   input[type="submit"] {
+    margin-top: 0;
     width: 85%;
     font-size: 4vw;
     background: #1da1f2;
@@ -109,5 +112,10 @@ input[type="submit"]:hover {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+  }
+
+  .dropdown-trigger,
+  .material-icons {
+    font-size: 3vw;
   }
 }
