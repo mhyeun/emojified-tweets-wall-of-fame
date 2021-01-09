@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: #1da1f2;
+}
+
+nav {
+  background-color: #ffffff !important;
+}
+
+nav ul a {
+  color: black;
+  font-size: 30px;
+}
+
+.emojifytweets-page {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.card {
+  font-family: 'Roboto', sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 40%;
+  height: 70%;
+  transform: translate(-50%, -50%);
+  background: #c0deed;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
+
+.container {
+  overflow-y: scroll;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  width: 94%;
+  height: 94%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
+
+.text-container {
+  position: relative;
+  text-align: center;
+  padding:5px;
+  top: 8%;
+  left: 50%;
+  width: 94%;
+  height: 30%;
+  margin-bottom: 8%;
+  transform: translate(-50%, -50%);
+  background: #c0deed;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media screen and (max-width: 992px) {
+  .card {
+    font-family: 'Roboto', sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    background: #c0deed;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+  }
+}

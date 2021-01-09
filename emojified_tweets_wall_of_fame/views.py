@@ -147,8 +147,7 @@ def authentication(request):
 
 
 def emojify(request):
-    TWITTER_API_URL = "http://localhost:5000/emojify-tweets"
-
+    TWITTER_API_URL = "http://mhyeun.pythonanywhere.com/emojify-tweets"
     if request.method == "POST":
         twitter_username = request.POST["twitter_username"]
         number_of_tweets = request.POST["number_of_tweets"]
@@ -161,7 +160,7 @@ def emojify(request):
         return render(
             request,
             "emojified_tweets_wall_of_fame/emojifytweets.html",
-            {"emojified_tweets": emojified_tweets.text},
+            {"emojified_tweets": json.loads(emojified_tweets.text)},
         )
     return render(request, "emojified_tweets_wall_of_fame/emojify.html")
 

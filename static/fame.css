@@ -134,3 +134,7 @@ select {
   display: flex;
   color: black;
 }
+
+.brightness {
+  filter: brightness(0.25);
+}

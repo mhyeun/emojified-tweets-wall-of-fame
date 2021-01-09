@@ -13,17 +13,17 @@ nav {
 }
 
 nav ul a {
-  color:black;
-  font-size:30px;
+  color: black;
+  font-size: 30px;
 }
 
-.login-page {
+.emojify-page {
   display: flex;
   align-content: center;
   justify-content: center;
 }
 
-.login-page h1 {
+.emojify-page h1 {
   margin-top: 7vh;
   margin-bottom: 5vh;
   font-size: 1.8vw;
@@ -31,12 +31,13 @@ nav ul a {
   color: black;
 }
 
-label[for=username],[for=number] {
-  font-size: 0.9vw;
+label[for="username"],
+[for="number"] {
   padding-bottom: 30px;
 }
 
-input[type=text], [type=number] {
+input[type="username"],
+[type="number"] {
   width: 100%;
   font-size: 1vw;
   display: inline-block;
@@ -69,28 +70,12 @@ input[type="submit"]:hover {
   background-color: #0073ca;
 }
 
-.login-page img {
-  position: fixed;
-  height: 13vh;
-  top: 7%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
-
-.login-page p {
-  color: red;
-  padding: 1vh;
-}
-
-
-
 @media screen and (max-width: 992px) {
-  .login-page form {
+  .emojify-page form {
     margin-top: 100px;
   }
 
-  .login-page h1 {
+  .emojify-page h1 {
     display: none;
   }
 
@@ -100,14 +85,11 @@ input[type="submit"]:hover {
     margin: 0 6vw;
   }
 
-  label[for="username"],
-  [for="password"] {
-    font-size: 7vw;
+  label[for="number"],[for="username"] {
+    font-size: 3vw;
   }
 
-  input[type="text"],
-  [type="password"],
-  select {
+  input[type="username"],[type="number"] {
     width: 100%;
     font-size: 6vw;
     margin: 0 0 50px 0;
@@ -127,9 +109,5 @@ input[type="submit"]:hover {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-  }
-
-  .login-page img {
-    display: none;
   }
 }

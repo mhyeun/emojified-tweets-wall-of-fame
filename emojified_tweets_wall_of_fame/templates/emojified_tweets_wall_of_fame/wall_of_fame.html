@@ -48,15 +48,15 @@
                   <input type="image" src="{% static 'thumbs-up.svg' %}" name="tweet_id" value="{{tweet.id}}" class="btTxt submit" id="saveForm" style="width: 50px;"/>
                 </div>
               </form>
-                {% if tweet.votes > 0 %}
+              {% if tweet.votes > 0 %}
                 <h3 class="morethan">{{ tweet.votes }}</h3>
-                {% elif tweet.votes == 0 %}
+              {% elif tweet.votes == 0 %}
                 <h3 class="equal">{{ tweet.votes }}</h3>
-                {% elif tweet.votes < 0 %}
+              {% elif tweet.votes < 0 %}
                 <h3 class="lessthan">{{ tweet.votes }}</h3>
-                {% endif %}
-                <form action="{% url 'dislike' %}" method="post">
-                  {% csrf_token %}
+              {% endif %}
+              <form action="{% url 'dislike' %}" method="post">
+                {% csrf_token %}
                 <div class="dislike">
                   <input type="hidden" name="next" value="{{request.path}}">
                   <input type="hidden" name="tweet_id" value="{{tweet.id}}" />
