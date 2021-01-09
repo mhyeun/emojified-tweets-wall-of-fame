@@ -1,3 +1,4 @@
 django
 pre-commit
 python-dotenv
+requests

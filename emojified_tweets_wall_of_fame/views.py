@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import make_password
 from .models import Tweet, CustomUser
 
+import requests
 import json
 
 
@@ -118,4 +119,18 @@ def emojify(request):
 
 
 def emojifytweets(request):
+    # error = {"error": True, "fields": [], "message": "Error."}
+    TWITTER_API_URL = "http://localhost:5000/emojify-tweets"
+
+    if request.method == "POST":
+        twitter_username = request.POST["twitter_username"]
+        number_of_tweets = request.POST["number_of_tweets"]
+
+        res = requests.get(
+            TWITTER_API_URL,
+            params={"username": twitter_username, "tweets": number_of_tweets},
+        )
+
+        print(res.text)
+        return render(request, "emojified_tweets_wall_of_fame/wall_of_fame.html")
     return render(request, "emojified_tweets_wall_of_fame/emojifytweets.html")
