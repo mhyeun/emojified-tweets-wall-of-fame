@@ -25,7 +25,7 @@ def wall_of_fame(request):
         tweets.append(tweet_dict)
 
     voted_tweets = []
-    if request.user:
+    if not request.user.is_anonymous:
         custom_user_to_tweets_list = CustomUserToTweet.objects.filter(
             voter=request.user
         )
@@ -91,6 +91,7 @@ def signup(request):
         username = request.POST["username"]
         password = request.POST["password"]
         password_retry = request.POST["password_retry"]
+        email = request.POST["email"]
 
         if password != password_retry:
             error["message"] = "Passwords did not match."
@@ -102,7 +103,7 @@ def signup(request):
             )
 
         new_user = CustomUser.objects.create(
-            username=username, password=make_password(password)
+            username=username, password=make_password(password), email=email
         )
         new_user.save()
         return redirect("wall_of_fame")
@@ -157,7 +158,6 @@ def emojify(request):
             params={"username": twitter_username, "tweets": number_of_tweets},
         )
 
-        print(emojified_tweets.text)
         return render(
             request,
             "emojified_tweets_wall_of_fame/emojifytweets.html",
@@ -201,6 +201,6 @@ def dislike(request):
         return HttpResponseRedirect(next)
 
 
-def logout(request):
+def handle_logout(request):
     logout(request)
-    return render(request, "emojified_tweets_wall_of_fame/wall_of_fame.html")
+    return render(request, "emojified_tweets_wall_of_fame/authentication.html")
