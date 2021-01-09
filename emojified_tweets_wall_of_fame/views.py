@@ -109,3 +109,11 @@ def authentication(request):
             )
 
     return render(request, "emojified_tweets_wall_of_fame/authentication.html")
+
+
+def emojify(request):
+    return render(request, "emojified_tweets_wall_of_fame/emojify.html")
+
+
+def emojifytweets(request):
+    return render(request, "emojified_tweets_wall_of_fame/emojifytweets.html")

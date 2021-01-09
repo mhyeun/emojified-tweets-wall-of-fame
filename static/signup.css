@@ -16,20 +16,17 @@ body {
 .login-page h1 {
   font-size: 1.8vw;
   font-weight: 400;
-  padding: 11%;
-  padding-bottom: 8%;
+  padding: 10%;
+  padding-bottom: 10%;
   color: black;
 }
 
-label[for="username"],
-[for="password"] {
-  font-size: 1.2vw;
+label[for=username],[for=password],[for=email] {
+  font-size: 0.9vw;
   padding-bottom: 10px;
 }
 
-input[type="text"],
-[type="password"],
-select {
+input[type=text], [type=password], [type=email] {
   padding: 10px;
   padding-left: 10px;
   width: 100%;
@@ -51,9 +48,10 @@ select {
 input[type="submit"] {
   width: 85%;
   font-size: 1.4vw;
+  margin-top: 2%;
   background: #1da1f2;
   color: white;
-  padding: 3%;
+  padding: 5%;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -65,8 +63,8 @@ input[type="submit"]:hover {
 
 .login-page img {
   position: fixed;
-  height: 20vh;
-  top: 10%;
+  height: 13vh;
+  top: 7%;
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
@@ -74,8 +72,10 @@ input[type="submit"]:hover {
 
 .login-page p {
   color: red;
-  padding: 3vh;
+  padding: 1vh;
 }
+
+
 
 @media screen and (max-width: 992px) {
   .login-page form {

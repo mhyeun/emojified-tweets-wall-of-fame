@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wall of Shame</title>
+    <title>Wall of Fame</title>
     {% load static %}
     <link rel="stylesheet" type="text/css"
           href="{% static 'fame.css' %}">
@@ -13,160 +13,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   </head>
   <body class="animate__animated animate__fadeIn">
-    <img src="{% static 'logo.png' %}" alt="">
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="{% url 'wall_of_fame' %}">Wall of Fame</a></li>
+      <li><a href="{% url 'wall_of_shame' %}">Wall of Shame</a></li>
+      <li><a href="{% url 'emojify' %}">Emojify</a></li>
+    </ul>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo"><img src="{% static 'logo.png' %}" alt=""></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      </div>
+    </nav>
     <div class="carousel" >
-      <a class="carousel-item" href="#one" tableindex="1">
+      {% for tweet in tweets %}
+      <a class="carousel-item" href="#{{tweet.content}}">
         <div class="card">
           <div class="card-container">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate tortor ligula, sed vulputate urna facilisis vel. Curabitur condimentum commodo.</h1>
+            <h1>{{ tweet.content }}</h1>
+            <h2>{{ tweet.poster_id }}</h2>
             <hr>
-            <div class="likes-comments">
+            <div class="like-dislike">
               <form method="post">
                 {% csrf_token %}
-                <input type="image" src="{% static 'like.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-                <input type="image" src="{% static 'comment.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
+                <div class="like">
+                  <input type="image" src="{% static 'thumbs-up.svg' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
+                </div>
+              </form>
+              <h3>Number of likes: {{ tweet.votes }}</h3>
+              <form method="post">
+                <div class="dislike">
+                  <input type="image" src="{% static 'thumbs-down.svg' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
+                </div>
               </form>
             </div>
           </div>
         </div>
       </a>
-      <a class="carousel-item" href="#two">
-        <div class="card">
-          <div class="card-container">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate tortor ligula, sed vulputate urna facilisis vel. Curabitur condimentum commodo.</h1>
-            <hr>
-            <div class="likes-comments">
-              <form method="post">
-                {% csrf_token %}
-                <input type="image" src="{% static 'like.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-                <input type="image" src="{% static 'comment.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-              </form>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a class="carousel-item" href="#three">
-        <div class="card">
-          <div class="card-container">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate tortor ligula, sed vulputate urna facilisis vel. Curabitur condimentum commodo.</h1>
-            <hr>
-            <div class="likes-comments">
-              <form method="post">
-                {% csrf_token %}
-                <input type="image" src="{% static 'like.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-                <input type="image" src="{% static 'comment.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-              </form>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a class="carousel-item" href="#four">
-        <div class="card">
-          <div class="card-container">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate tortor ligula, sed vulputate urna facilisis vel. Curabitur condimentum commodo.</h1>
-            <hr>
-            <div class="likes-comments">
-              <form method="post">
-                {% csrf_token %}
-                <input type="image" src="{% static 'like.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-                <input type="image" src="{% static 'comment.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-              </form>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a class="carousel-item" href="#five">
-        <div class="card">
-          <div class="card-container">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate tortor ligula, sed vulputate urna facilisis vel. Curabitur condimentum commodo.</h1>
-            <hr>
-            <div class="likes-comments">
-              <form method="post">
-                {% csrf_token %}
-                <input type="image" src="{% static 'like.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-                <input type="image" src="{% static 'comment.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-              </form>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a class="carousel-item" href="#six">
-        <div class="card">
-          <div class="card-container">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate tortor ligula, sed vulputate urna facilisis vel. Curabitur condimentum commodo.</h1>
-            <hr>
-            <div class="likes-comments">
-              <form method="post">
-                {% csrf_token %}
-                <input type="image" src="{% static 'like.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-                <input type="image" src="{% static 'comment.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-              </form>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a class="carousel-item" href="#seven">
-        <div class="card">
-          <div class="card-container">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate tortor ligula, sed vulputate urna facilisis vel. Curabitur condimentum commodo.</h1>
-            <hr>
-            <div class="likes-comments">
-              <form method="post">
-                {% csrf_token %}
-                <input type="image" src="{% static 'like.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-                <input type="image" src="{% static 'comment.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-              </form>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a class="carousel-item" href="#eight">
-        <div class="card">
-          <div class="card-container">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate tortor ligula, sed vulputate urna facilisis vel. Curabitur condimentum commodo.</h1>
-            <hr>
-            <div class="likes-comments">
-              <form method="post">
-                {% csrf_token %}
-                <input type="image" src="{% static 'like.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-                <input type="image" src="{% static 'comment.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-              </form>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a class="carousel-item" href="#nine">
-        <div class="card">
-          <div class="card-container">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate tortor ligula, sed vulputate urna facilisis vel. Curabitur condimentum commodo.</h1>
-            <hr>
-            <div class="likes-comments">
-              <form method="post">
-                {% csrf_token %}
-                <input type="image" src="{% static 'like.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-                <input type="image" src="{% static 'comment.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-              </form>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a class="carousel-item" href="#ten">
-        <div class="card">
-          <div class="card-container">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate tortor ligula, sed vulputate urna facilisis vel. Curabitur condimentum commodo.</h1>
-            <hr>
-            <div class="likes-comments">
-              <form method="post">
-                {% csrf_token %}
-                <input type="image" src="{% static 'like.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-                <input type="image" src="{% static 'comment.png' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
-              </form>
-            </div>
-          </div>
-        </div>
-      </a>
+      {% endfor %}
     </div>
     <script
       src="https://code.jquery.com/jquery-3.5.1.js"
@@ -179,11 +68,10 @@
          $('.carousel').carousel();
       });
     </script>
+    <script>
+      $(".dropdown-trigger").dropdown();
+    </script>
     <link rel="stylesheet" type="text/css"
     href="{% static 'fame.css' %}">
-    <p>Base Template</p>
-    {% for tweet in tweets %}
-    <p>{{ tweet }}</p>
-    {% endfor %}
   </body>
 </html>

@@ -8,4 +8,6 @@ urlpatterns = [
     path("health", views.health, name="health"),
     path("authentication", views.authentication, name="authentication"),
     path("signup", views.signup, name="signup"),
+    path("emojify", views.emojify, name="emojify"),
+    path("emojifytweets", views.emojifytweets, name="emojifytweets"),
 ]

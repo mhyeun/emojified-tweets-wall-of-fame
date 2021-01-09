@@ -1,10 +1,20 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
   background: #1da1f2;
+}
+
+nav {
+  background-color: #ffffff !important;
+}
+
+nav ul a {
+  color:black;
+  font-size:30px;
 }
 
 .login-page {
@@ -14,26 +24,21 @@ body {
 }
 
 .login-page h1 {
+  margin-top: 7vh;
+  margin-bottom: 5vh;
   font-size: 1.8vw;
   font-weight: 400;
-  padding: 11%;
   color: black;
 }
 
-label[for="username"],
-[for="password"] {
-  font-size: 1.2vw;
-  padding-bottom: 10px;
+label[for=username],[for=number] {
+  font-size: 0.9vw;
+  padding-bottom: 30px;
 }
 
-input[type="text"],
-[type="password"],
-select {
-  padding: 10px;
-  padding-left: 10px;
+input[type=text], [type=number] {
   width: 100%;
   font-size: 1vw;
-  margin: 10px 0 40px 0;
   display: inline-block;
   background: #c0deed;
   border: none;
@@ -45,14 +50,16 @@ select {
   font-weight: 500;
   text-align: left;
   margin: 0 1.8vw;
+  margin-top: 3vh;
 }
 
 input[type="submit"] {
   width: 85%;
   font-size: 1.4vw;
+  margin-top: 10%;
   background: #1da1f2;
   color: white;
-  padding: 3%;
+  padding: 5%;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -64,17 +71,19 @@ input[type="submit"]:hover {
 
 .login-page img {
   position: fixed;
-  height: 20vh;
-  top: 10%;
+  height: 13vh;
+  top: 7%;
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
 
-.login-page p{
-  color:red;
-  padding:3vh;
+.login-page p {
+  color: red;
+  padding: 1vh;
 }
+
+
 
 @media screen and (max-width: 992px) {
   .login-page form {
@@ -101,7 +110,7 @@ input[type="submit"]:hover {
   select {
     width: 100%;
     font-size: 6vw;
-    margin: 0px 0 50px 0;
+    margin: 0 0 50px 0;
     display: inline-block;
     background: #c0deed;
     border: none;

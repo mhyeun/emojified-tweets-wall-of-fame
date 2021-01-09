@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Log in</title>
+    <title>Sign Up</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
@@ -29,7 +29,11 @@
             </div>
             <div class="text-container">
               <label for="password">Type password again:</label><br>
-              <input type="password" id="password_retry" name="password_retry"><br><br>
+              <input type="password" id="password_retry" name="password_retry"><br>
+            </div>
+            <div class="text-container">
+              <label for="email">Email:</label><br>
+              <input type="email" id="email" name="email"><br><br>
             </div>
             <input type="submit" value="Sign up">
             {% if error %}
