@@ -61,7 +61,7 @@ def wall_of_shame(request):
         tweets.append(tweet_dict)
 
     voted_tweets = []
-    if request.user:
+    if not request.user.is_anonymous:
         custom_user_to_tweets_list = CustomUserToTweet.objects.filter(
             voter=request.user
         )

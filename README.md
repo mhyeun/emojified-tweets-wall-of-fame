@@ -1,4 +1,6 @@
 # Emojified Tweets Wall of Fame 👌
+  _Try out our application [here](https://www.emoji-bot.com)!_
+
 <p align=center>
   😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂
 </p>
