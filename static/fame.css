@@ -1,5 +1,5 @@
 body {
-  height:90vh;
+  height: 90vh;
   margin: 0;
   padding: 0;
   background: #1da1f2;
@@ -11,8 +11,8 @@ nav {
 }
 
 nav ul a {
-  color:black;
-  font-size:30px;
+  color: black;
+  font-size: 30px;
 }
 
 .carousel {
@@ -22,7 +22,7 @@ nav ul a {
   perspective: 1000px;
 }
 
-img{
+img {
   position: fixed;
   height: 20vh;
   top: 20%;
@@ -45,7 +45,6 @@ img{
   transition: 0s;
 }
 
-
 .card-container {
   position: relative;
   display: flex;
@@ -56,6 +55,7 @@ img{
   left: 50%;
   width: 94%;
   height: 94%;
+  padding: 10px;
   transform: translate(-50%, -50%);
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -95,7 +95,7 @@ img{
 .card-container h2 {
   word-wrap: break-word;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   padding: 0 20px;
   color: black;
   font-size: 1vw;
@@ -103,59 +103,108 @@ img{
 
 .card-container hr {
   border: 1px solid rgb(0, 0, 0);
-  border-radius: 12px;
+  border-radius: 5px;
   width: 90%;
 }
 
-form{
+form {
   display: flex;
 }
 
 input[type="image"],
 select {
-  height:1.3vw;
-  margin-top: 50%;
+  height: 1.3vw;
+  margin-top: 20%;
   outline: none;
   background: none;
 }
 
 .like-dislike {
-  display:flex;
+  display: flex;
   justify-content: space-around;
 }
 
 .like {
-  display:flex;
+  display: flex;
 }
 
-.morethan{
+h3 {
+  margin: 0px;
+}
+
+.morethan {
   color: rgb(4, 172, 250);
   font-size: 1vw;
-  margin-top: px;
+  margin-top: 4%;
 }
 
-.lessthan{
+.lessthan {
   color: rgb(240, 18, 18);
   font-size: 1vw;
-  margin-top: px;
+  margin-top: 4%;
 }
 
-.equal{
+.equal {
   color: black;
   font-size: 1vw;
-  margin-top: px;
+  margin-top: 4%;
 }
 
 .dislike {
   text-align: right;
 }
 
-.dropdown {
-  height:10vh;
-  display: flex;
-  color: black;
-}
+@media only screen and (max-width: 1275px) {
+  .carousel .carousel-item {
+    width: 50vw;
+    height: 40vh;
+  }
+  .card-container h1 {
+    word-wrap: break-word;
+    overflow-y: scroll;
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding: 0 20px;
+    color: black;
+    font-size: 3vw;
+  }
+  input[type="image"],
+  select {
+    height: 3vw;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    outline: none;
+    background: none;
+  }
 
-.brightness {
-  filter: brightness(0.25);
+  h3 {
+    margin: 0px;
+  }
+  .morethan {
+    color: rgb(4, 172, 250);
+    font-size: 3vw;
+    margin-top: 5%;
+    margin-bottom: 0;
+  }
+
+  .lessthan {
+    color: rgb(240, 18, 18);
+    font-size: 3vw;
+    margin-top: 5%;
+    margin-bottom: 0;
+  }
+
+  .equal {
+    color: black;
+    font-size: 3vw;
+    margin-top: 5%;
+    margin-bottom: 0;
+  }
+  a {
+    font-size: 1vw;
+  }
+  .dropdown-trigger,
+  .material-icons {
+    font-size: 3vw;
+  }
 }
