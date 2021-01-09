@@ -16,6 +16,7 @@ def wall_of_fame(request):
             "content": tweet.content,
             "votes": tweet.votes,
             "poster_id": tweet.poster,
+            "id": tweet.pk,
         }
         if len(tweets) >= 10:
             break
@@ -35,6 +36,7 @@ def wall_of_shame(request):
             "content": tweet.content,
             "votes": tweet.votes,
             "poster_id": tweet.poster,
+            "id": tweet.pk,
         }
         if len(tweets) >= 10:
             break

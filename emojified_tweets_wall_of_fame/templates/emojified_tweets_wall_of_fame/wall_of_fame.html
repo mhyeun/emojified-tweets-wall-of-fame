@@ -32,7 +32,7 @@
     </nav>
     <div class="carousel" >
       {% for tweet in tweets %}
-      <a class="carousel-item" href="#{{tweet.content}}">
+      <a class="carousel-item" href="#{{tweet.id}}">
         <div class="card">
           <div class="card-container">
             <h1>{{ tweet.content }}</h1>
@@ -45,7 +45,12 @@
                   <input type="image" src="{% static 'thumbs-up.svg' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
                 </div>
               </form>
-              <h3>Number of likes: {{ tweet.votes }}</h3>
+              {% if tweet.votes > 0 %}
+                <h3>{{ tweet.votes }}</h3>
+              {% endif %}
+              {% if tweet.votes > 0 %}
+                <h3>{{ tweet.votes }}</h3>
+              {% endif %}
               <form method="post">
                 <div class="dislike">
                   <input type="image" src="{% static 'thumbs-down.svg' %}" name="saveForm" class="btTxt submit" id="saveForm" style="width: 50px;"/>
