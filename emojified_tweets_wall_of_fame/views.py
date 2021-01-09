@@ -178,10 +178,13 @@ def like(request):
         tweet_id = request.POST["tweet_id"]
         tweet = Tweet.objects.get(id=tweet_id)
 
+        tweet.votes += 1
+
         relation = CustomUserToTweet.objects.create(
             voter=request.user, tweet=tweet, is_upvote=True
         )
         relation.save()
+        tweet.save()
 
         return HttpResponseRedirect(next)
 
@@ -193,10 +196,13 @@ def dislike(request):
         tweet_id = request.POST["tweet_id"]
         tweet = Tweet.objects.get(id=tweet_id)
 
+        tweet.votes -= 1
+
         relation = CustomUserToTweet.objects.create(
             voter=request.user, tweet=tweet, is_upvote=False
         )
         relation.save()
+        tweet.save()
 
         return HttpResponseRedirect(next)
 
