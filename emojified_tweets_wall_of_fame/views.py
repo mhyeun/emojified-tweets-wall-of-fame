@@ -44,6 +44,7 @@ def wall_of_fame(request):
     )
 
 
+@login_required(login_url="/authentication")
 def wall_of_shame(request):
     tweets_list = Tweet.objects.all().order_by("votes")
 
