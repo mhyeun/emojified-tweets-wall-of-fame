@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import User, Tweet, Comment, TweetsToComments
+from .models import Tweet, CustomUser, CustomUserToTweet
 
+admin.site.register(CustomUser)
 admin.site.register(Tweet)
-admin.site.register(Comment)
-admin.site.register(TweetsToComments)
+admin.site.register(CustomUserToTweet)

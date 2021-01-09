@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1da1f2;
+}
+
+.login-page {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.login-page h1 {
+  font-size: 1.8vw;
+  font-weight: 400;
+  padding: 10%;
+  padding-bottom: 10%;
+  color: black;
+}
+
+label[for=username],[for=password],[for=email] {
+  font-size: 0.9vw;
+  padding-bottom: 10px;
+}
+
+input[type=text], [type=password], [type=email] {
+  padding: 10px;
+  padding-left: 10px;
+  width: 100%;
+  font-size: 1vw;
+  margin: 10px 0 15px 0;
+  display: inline-block;
+  background: #c0deed;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.text-container {
+  font-weight: 500;
+  text-align: left;
+  margin: 0 1.8vw;
+}
+
+input[type="submit"] {
+  width: 85%;
+  font-size: 1.4vw;
+  margin-top: 2%;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  background: #1da1f2;
+  color: white;
+  padding: 5%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0073ca;
+}
+
+.login-page img {
+  position: fixed;
+  height: 13vh;
+  top: 7%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.login-page p {
+  color: red;
+  padding: 1vh;
+}
+
+
+
+@media screen and (max-width: 992px) {
+  .login-page form {
+    margin-top: 100px;
+  }
+
+  .login-page h1 {
+    display: none;
+  }
+
+  .text-container {
+    font-weight: 500;
+    text-align: left;
+    margin: 0 6vw;
+  }
+
+  label[for="username"],
+  [for="password"] {
+    font-size: 7vw;
+  }
+
+  input[type="text"],
+  [type="password"],
+  select {
+    width: 100%;
+    font-size: 6vw;
+    margin: 0 0 50px 0;
+    display: inline-block;
+    background: #c0deed;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    width: 85%;
+    font-size: 4vw;
+    background: #1da1f2;
+    color: white;
+    padding: 5%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .login-page img {
+    display: none;
+  }
+}

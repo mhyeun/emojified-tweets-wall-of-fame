@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweetmoji</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'fame.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'card.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+  <body class="animate__animated animate__fadeIn">
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="{% url 'wall_of_fame' %}">Wall of Fame</a></li>
+      <li><a href="{% url 'wall_of_shame' %}">Wall of Shame</a></li>
+      <li><a href="{% url 'emojify' %}">Emojify</a></li>
+      <li><a href="{% url 'handle_logout' %}">Log out</li>
+    </ul>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo"><img src="{% static 'logo.png' %}" alt=""></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="carousel" >
+      {% for tweet in tweets %}
+      <a class="carousel-item" href="#{{tweet.id}}">
+        <div class="card">
+          <div class="card-container">
+            <h1>{{ tweet.content }}</h1>
+            <i><h2>Posted by: {{ tweet.poster_id }}</h2></i>
+            <hr>
+            <div class="like-dislike">
+              <form action="{% url 'like' %}" method="post">
+                {% csrf_token %}
+                <div class="like">
+                  <input type="hidden" name="next" value="{{request.path}}">
+                  <input type="hidden" name="tweet_id" value="{{tweet.id}}" />
+                  <input type="image" src="{% static 'thumbs-up.svg' %}" name="tweet_id" value="{{tweet.id}}" class="btTxt submit" id="saveForm" style="width: 50px;"/>
+                </div>
+              </form>
+              {% if tweet.votes > 0 %}
+                <h3 class="morethan">{{ tweet.votes }}</h3>
+              {% elif tweet.votes == 0 %}
+                <h3 class="equal">{{ tweet.votes }}</h3>
+              {% elif tweet.votes < 0 %}
+                <h3 class="lessthan">{{ tweet.votes }}</h3>
+              {% endif %}
+              <form action="{% url 'dislike' %}" method="post">
+                {% csrf_token %}
+                <div class="dislike">
+                  <input type="hidden" name="next" value="{{request.path}}">
+                  <input type="hidden" name="tweet_id" value="{{tweet.id}}" />
+                  <input type="image" src="{% static 'thumbs-down.svg' %}" name="tweet_id" value="{{tweet.id}}" class="btTxt submit" id="saveForm" style="width: 50px;"/>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+         $('.carousel').carousel();
+      });
+    </script>
+    <script>
+      $(".dropdown-trigger").dropdown();
+    </script>
+    <link rel="stylesheet" type="text/css"
+    href="{% static 'fame.css' %}">
+  </body>
+</html>

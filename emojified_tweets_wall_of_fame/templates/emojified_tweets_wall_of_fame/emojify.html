@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>Emojify</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'card.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'emojify.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body class="animate__animated animate__fadeIn">
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="{% url 'wall_of_fame' %}">Wall of Fame</a></li>
+      <li><a href="{% url 'wall_of_shame' %}">Wall of Shame</a></li>
+      <li><a href="{% url 'emojify' %}">Emojify</a></li>
+      <li><a href="{% url 'handle_logout' %}">Log out</li>
+    </ul>
+    <nav>
+      <div class="nav-wrapper">
+        <ul class="right hide-on-med-and-down">
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="emojify-page">
+      <div class="card">
+        <div class="container">
+          <h1>Emojify your tweet</h1>
+          <form action="{% url 'emojify' %}" method="post">
+            {% csrf_token %}
+            <div class="text-container">
+              <label for="username">Type the @ of the person you want to emojify:</label>
+              <input type="text" id="twitter_username" name="twitter_username" required
+              oninvalid="this.setCustomValidity('Enter Username Here')"
+              oninput="this.setCustomValidity('')"/><br>
+            </div>
+            <div class="text-container">
+              <label for="number">Select the amount of tweets you want to emojify (most recent):</label><br>
+              <input type="number" id="number_of_tweets" name="number_of_tweets" min="1" max="10" required
+              oninvalid="this.setCustomValidity('Enter Number Here')"
+              oninput="this.setCustomValidity('')"/><br>
+            </div>
+            <input type="submit" value="Emojify and Submit">
+            {% if error %}
+            <p>{{ error.message }}</p>
+            {% endif %}
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      $(".dropdown-trigger").dropdown();
+    </script>
+  </body>
+</html>

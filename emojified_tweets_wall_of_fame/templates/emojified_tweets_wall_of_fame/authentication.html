@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Log in</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'card.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'signup.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="login-page">
+      <img src="{% static 'logo.png' %}" alt="">
+      <div class="card">
+        <div class="container">
+          <h1>Log in to Tweetmoji</h1>
+          <form action="{% url 'authentication' %}" method="post">
+            {% csrf_token %}
+            <div class="text-container">
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" required
+              oninvalid="this.setCustomValidity('Enter Username Here')"
+              oninput="this.setCustomValidity('')"/><br>
+            </div>
+            <div class="text-container">
+              <label for="password">Password:</label><br>
+              <input type="password" id="password" name="password" required
+              oninvalid="this.setCustomValidity('Enter Password Here')"
+              oninput="this.setCustomValidity('')"/><br>
+            </div>
+            <input type="submit" value="Log in"><br>
+            <a href="/signup" style="text-decoration:none">Or if you dont have an account...</a>
+            {% if error %}
+            <p>{{ error.message }}</p>
+            {% endif %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
