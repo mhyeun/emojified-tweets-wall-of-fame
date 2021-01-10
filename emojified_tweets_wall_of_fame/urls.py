@@ -14,4 +14,5 @@ urlpatterns = [
     path("like", views.like, name="like"),
     path("dislike", views.dislike, name="dislike"),
     path("logout", views.handle_logout, name="handle_logout"),
+    path("about", views.about, name="about"),
 ]

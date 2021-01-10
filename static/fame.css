@@ -18,14 +18,14 @@ nav ul a {
 .carousel {
   display: flex;
   justify-content: center;
-  height: 100%;
+  height: 60%;
   perspective: 1000px;
 }
 
 img {
-  position: fixed;
+  position: relative;
   height: 20vh;
-  top: 20%;
+  top: 10%;
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
