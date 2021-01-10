@@ -65,6 +65,7 @@ img {
 .card-container h1 {
   word-wrap: break-word;
   overflow-y: scroll;
+  line-height: 1.5vw;
   margin-bottom: 0;
   padding:0px 20px 20px 20px;
   color: black;
@@ -153,7 +154,7 @@ h3 {
   text-align: right;
 }
 
-@media only screen and (max-width: 1275px) {
+@media only screen and (max-width: 1200px) {
   .carousel .carousel-item {
     width: 50vw;
     height: 40vh;

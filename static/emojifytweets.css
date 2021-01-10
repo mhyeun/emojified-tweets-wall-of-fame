@@ -87,7 +87,7 @@ nav ul a {
   background: #555;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1275px) {
   .card {
     font-family: 'Roboto', sans-serif;
     position: fixed;
