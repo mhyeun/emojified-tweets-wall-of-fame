@@ -65,7 +65,6 @@ img {
 .card-container h1 {
   word-wrap: break-word;
   overflow-y: scroll;
-  line-height: 1.5vw;
   margin-bottom: 0;
   padding:0px 20px 20px 20px;
   color: black;
