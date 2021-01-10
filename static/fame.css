@@ -168,7 +168,7 @@ h3 {
     color: black;
     font-size: 3vw;
   }
-  
+
   input[type="image"],
   select {
     height: 3vw;
@@ -194,13 +194,14 @@ h3 {
     margin-top: 15px;
     margin-bottom: 0;
   }
+
   .equal {
     color: black;
     font-size: 3vw;
     margin-top: 15px;
     margin-bottom: 0;
   }
-  
+
   .dropdown-trigger,
   .material-icons {
     font-size: 3vw;
