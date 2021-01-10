@@ -87,7 +87,7 @@ input[type="submit"]:hover {
     margin-bottom: 5vh;
   }
 
-  label[for="number"],[for="username"] {
+  label[for="number"],[for="text"] {
     font-size: 3vw;
   }
 
