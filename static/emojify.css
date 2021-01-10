@@ -114,4 +114,8 @@ input[type="submit"]:hover {
     cursor: pointer;
   }
 
+  .dropdown-trigger,
+  .material-icons {
+    font-size: 3vw;
+  }
 }
