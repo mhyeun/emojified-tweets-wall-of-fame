@@ -6,7 +6,7 @@
 </p>
 
 <p align=center>
-  <img src="https://github.com/mhyeun/emojified-tweets-wall-of-fame/blob/master/static/logo.PNG" alt="logo" width="150"/>
+  <img src="https://github.com/mhyeun/emojified-tweets-wall-of-fame/blob/master/static/logo-readme.png" alt="logo" width="150"/>
 </p>
 
 <p align=center>
