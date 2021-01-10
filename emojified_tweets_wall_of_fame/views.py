@@ -84,6 +84,10 @@ def health(response):
     return HttpResponse(json.dumps(success_message))
 
 
+def about(request):
+    return render(request, "emojified_tweets_wall_of_fame/about.html")
+
+
 def signup(request):
     error = {"error": True, "fields": [], "message": "Something went wrong."}
 

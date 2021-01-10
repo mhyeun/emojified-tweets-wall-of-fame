@@ -17,12 +17,12 @@
 
   </head>
   <body class="animate__animated animate__fadeIn">
-    <img src="{% static 'logo.png' %}">
     <ul id="dropdown1" class="dropdown-content">
       <li><a href="{% url 'wall_of_fame' %}">Wall of Fame</a></li>
       <li><a href="{% url 'wall_of_shame' %}">Wall of Shame</a></li>
       <li><a href="{% url 'emojify' %}">Emojify</a></li>
-      <li><a href="{% url 'handle_logout' %}">Log out</li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'handle_logout' %}">Log out</a></li>
     </ul>
     <nav>
       <div class="nav-wrapper">
@@ -31,6 +31,7 @@
         </ul>
       </div>
     </nav>
+    <img src="{% static 'logo.png' %}">
     <div class="carousel" >
       {% for tweet in tweets %}
       <a class="carousel-item" href="#{{tweet.id}}">

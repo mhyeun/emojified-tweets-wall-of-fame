@@ -10,11 +10,9 @@
     <link rel="stylesheet" type="text/css"
           href="{% static 'card.css' %}">
     <link rel="stylesheet" type="text/css"
-          href="{% static 'emojify.css' %}">
+          href="{% static 'about.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body class="animate__animated animate__fadeIn">
@@ -32,29 +30,21 @@
         </ul>
       </div>
     </nav>
-    <div class="emojify-page">
+    <div class="about-page">
       <div class="card">
         <div class="container">
-          <h1>Emojify your tweet</h1>
-          <form action="{% url 'emojify' %}" method="post">
-            {% csrf_token %}
-            <div class="text-container">
-              <label for="username">Type the @ of the person you want to emojify:</label>
-              <input type="text" id="twitter_username" name="twitter_username" required
-              oninvalid="this.setCustomValidity('Enter Username Here')"
-              oninput="this.setCustomValidity('')"/><br>
-            </div>
-            <div class="text-container">
-              <label for="number">Select the amount of tweets you want to emojify (most recent):</label><br>
-              <input type="number" id="number_of_tweets" name="number_of_tweets" min="1" max="10" required
-              oninvalid="this.setCustomValidity('Enter Number Here')"
-              oninput="this.setCustomValidity('')"/><br>
-            </div>
-            <input type="submit" value="Emojify and Submit">
-            {% if error %}
-            <p>{{ error.message }}</p>
-            {% endif %}
-          </form>
+          <h1>About</h1>
+          <div class="text-container">
+            <p>This app emojifies given number 8️⃣ of tweets 🐦🐦🐦 from a user 👥 on twitter #️⃣ and posts 🏣
+              them here 📍📍📍 for the users 🗣 on this website to vote. 🗳
+              To do this go to <a href="https://www.emoji-bot.com/emojify">emojify</a>.
+              Wall of fame shows 📺 posts 🚩 with the most amount of vote ☑️🗳 first, 🌛
+              while Wall of shame does the otherwise.
+            </p><br>
+            <p>
+              Go emojify😂!
+            </p>
+          </div>
         </div>
       </div>
     </div>
