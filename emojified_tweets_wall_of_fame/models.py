@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from datetime import datetime
+from django.utils.timezone import now
 from django.contrib.auth.models import AbstractUser
 
 # Made foreign key relation with no cascade delete since
@@ -20,6 +20,7 @@ class Tweet(models.Model):
     poster = models.ForeignKey(
         settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL
     )
+    posted_at = models.DateTimeField(default=now)
 
     def __str__(self):
         return self.content
