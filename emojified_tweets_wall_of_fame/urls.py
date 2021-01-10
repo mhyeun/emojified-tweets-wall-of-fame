@@ -15,4 +15,5 @@ urlpatterns = [
     path("dislike", views.dislike, name="dislike"),
     path("logout", views.handle_logout, name="handle_logout"),
     path("about", views.about, name="about"),
+    path("all-tweets", views.all_tweets, name="all_tweets"),
 ]
