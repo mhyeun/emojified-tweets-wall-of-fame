@@ -32,6 +32,7 @@
         </ul>
       </div>
     </nav>
+    <h1>{{ is_user_anonymous }}</h1>
     <img src="{% static 'logo.png' %}">
     <div class="carousel" >
       {% for tweet in tweets %}

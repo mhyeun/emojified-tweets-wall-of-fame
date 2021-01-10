@@ -37,10 +37,16 @@ def wall_of_fame(request):
             }
             voted_tweets.append(tweet_dict)
 
+    is_user_anonymous = request.user.is_anonymous
+
     return render(
         request,
         "emojified_tweets_wall_of_fame/wall_of_fame.html",
-        {"tweets": tweets, "voted_tweets": voted_tweets},
+        {
+            "tweets": tweets,
+            "voted_tweets": voted_tweets,
+            "is_user_anonymous": is_user_anonymous,
+        },
     )
 
 
@@ -72,10 +78,16 @@ def wall_of_shame(request):
             }
             voted_tweets.append(tweet_dict)
 
+    is_user_anonymous = request.user.is_anonymous
+
     return render(
         request,
         "emojified_tweets_wall_of_fame/wall_of_fame.html",
-        {"tweets": tweets, "voted_tweets": voted_tweets},
+        {
+            "tweets": tweets,
+            "voted_tweets": voted_tweets,
+            "is_user_anonymous": is_user_anonymous,
+        },
     )
 
 
@@ -85,7 +97,13 @@ def health(response):
 
 
 def about(request):
-    return render(request, "emojified_tweets_wall_of_fame/about.html")
+    is_user_anonymous = request.user.is_anonymous
+
+    return render(
+        request,
+        "emojified_tweets_wall_of_fame/about.html",
+        {"is_user_anonymous": is_user_anonymous},
+    )
 
 
 def signup(request):
