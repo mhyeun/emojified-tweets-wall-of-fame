@@ -107,7 +107,11 @@ def signup(request):
             )
 
         # check if user already exists
-        matching_username = CustomUser.objects.get(username=username)
+        try:
+            matching_username = CustomUser.objects.get(username=username)
+        except CustomUser.DoesNotExist:
+            matching_username = None
+
         if matching_username is not None:
             error["message"] = "Username already taken."
             error["fields"].append("username")
