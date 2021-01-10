@@ -31,7 +31,7 @@ nav ul a {
   color: black;
 }
 
-label[for="username"],
+label[for="text"],
 [for="number"] {
   padding-bottom: 30px;
   font-size: 0.7vw;
