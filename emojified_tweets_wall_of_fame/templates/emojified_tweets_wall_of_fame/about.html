@@ -22,7 +22,11 @@
       <li><a href="{% url 'wall_of_shame' %}">Wall of Shame</a></li>
       <li><a href="{% url 'emojify' %}">Emojify</a></li>
       <li><a href="{% url 'about' %}">About</a></li>
+      {% if is_user_anonymous is False %}
       <li><a href="{% url 'handle_logout' %}">Log out</a></li>
+      {% else %}
+      <li><a href="{% url 'authentication' %}">Log in</a></li>
+      {% endif %}
     </ul>
     <nav>
       <div class="nav-wrapper">
@@ -31,7 +35,6 @@
         </ul>
       </div>
     </nav>
-    <h1>{{ is_user_anonymous }}</h1>
     <div class="about-page">
       <div class="card">
         <div class="container">
