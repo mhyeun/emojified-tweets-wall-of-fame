@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+    <link rel="shortcut icon" href="{% static 'logo.png' %}" />
     <link rel="stylesheet" type="text/css"
           href="{% static 'card.css' %}">
     <link rel="stylesheet" type="text/css"
@@ -29,10 +30,10 @@
               <label for="password">Password:</label><br>
               <input type="password" id="password" name="password" required
               oninvalid="this.setCustomValidity('Enter Password Here')"
-              oninput="this.setCustomValidity('')"/><br>
+              oninput="this.setCustomValidity('')"/><br><br>
             </div>
-            <input type="submit" value="Log in"><br>
-            <a href="/signup" style="text-decoration:none">Or if you dont have an account...</a>
+            <input type="submit" value="Log in"><br><br>
+            <a href="/signup" style="text-decoration:none">Or if you dont have an account...</a><br><br>
             {% if error %}
             <p>{{ error.message }}</p>
             {% endif %}

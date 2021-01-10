@@ -26,7 +26,7 @@ nav ul a {
 .emojify-page h1 {
   margin-top: 7vh;
   margin-bottom: 5vh;
-  font-size: 1.8vw;
+  font-size: 1.8vw !important;
   font-weight: 400;
   color: black;
 }
@@ -71,30 +71,32 @@ input[type="submit"]:hover {
   background-color: #0073ca;
 }
 
-@media only screen and (max-width: 1275px) {
+@media screen and (max-width: 800px) {
   .emojify-page form {
     margin-top: 3vh;
   }
 
   .emojify-page h1 {
-    font-size: 4vw
+    font-size: 5vw !important;
+    padding-bottom: 0px;
+    margin-top: 5vh;
+    margin-bottom: 0;
   }
 
   .text-container {
     font-weight: 500;
     text-align: left;
-    margin: 0 6vw;
-    margin-bottom: 5vh;
   }
 
-  label[for="number"],[for="username"] {
-    font-size: 3vw;
+  label[for="username"],
+  [for="number"] {
+    font-size: 2vw !important;
   }
 
-  input[type="text"],[type="number"] {
+  input[type="text"],
+  [type="number"]{
     width: 100%;
-    font-size: 6vw;
-    margin-bottom: 50px;
+    font-size: 2vh;
     display: inline-block;
     background: #c0deed;
     border: none;
@@ -103,19 +105,13 @@ input[type="submit"]:hover {
   }
 
   input[type="submit"] {
-    margin-top: 0;
-    width: 85%;
-    font-size: 4vw;
+    width: 95%;
+    font-size: 2vh;
     background: #1da1f2;
     color: white;
-    padding: 5%;
     border: none;
     border-radius: 10px;
     cursor: pointer;
   }
 
-  .dropdown-trigger,
-  .material-icons {
-    font-size: 3vw;
-  }
 }

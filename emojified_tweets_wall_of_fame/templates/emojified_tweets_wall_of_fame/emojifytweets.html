@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% load static %}
+        <link rel="shortcut icon" href="{% static 'logo.png' %}" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" type="text/css"
             href="{% static 'card.css' %}">
@@ -19,8 +20,10 @@
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="{% url 'wall_of_fame' %}">Wall of Fame</a></li>
             <li><a href="{% url 'wall_of_shame' %}">Wall of Shame</a></li>
+            <li><a href="{% url 'all_tweets' %}">All Emojified Tweets</a></li>
             <li><a href="{% url 'emojify' %}">Emojify</a></li>
-            <li><a href="{% url 'handle_logout' %}">Log out</li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'handle_logout' %}">Log out</a></li>
         </ul>
         <nav>
             <div class="nav-wrapper">

@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedire
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
+from datetime import datetime
 
 from .models import Tweet, CustomUser, CustomUserToTweet
 
@@ -37,10 +38,16 @@ def wall_of_fame(request):
             }
             voted_tweets.append(tweet_dict)
 
+    is_user_anonymous = request.user.is_anonymous
+
     return render(
         request,
         "emojified_tweets_wall_of_fame/wall_of_fame.html",
-        {"tweets": tweets, "voted_tweets": voted_tweets},
+        {
+            "tweets": tweets,
+            "voted_tweets": voted_tweets,
+            "is_user_anonymous": is_user_anonymous,
+        },
     )
 
 
@@ -73,6 +80,47 @@ def wall_of_shame(request):
             }
             voted_tweets.append(tweet_dict)
 
+    is_user_anonymous = request.user.is_anonymous
+
+    return render(
+        request,
+        "emojified_tweets_wall_of_fame/wall_of_fame.html",
+        {
+            "tweets": tweets,
+            "voted_tweets": voted_tweets,
+            "is_user_anonymous": is_user_anonymous,
+        },
+    )
+
+
+def all_tweets(request):
+    tweets_list = Tweet.objects.all().order_by("-posted_at")
+
+    tweets = []
+    for tweet in tweets_list:
+        tweet_dict = {
+            "content": tweet.content,
+            "votes": tweet.votes,
+            "poster_id": tweet.poster,
+            "posted_at": tweet.posted_at,
+            "id": tweet.pk,
+        }
+
+        tweets.append(tweet_dict)
+
+    voted_tweets = []
+    if not request.user.is_anonymous:
+        custom_user_to_tweets_list = CustomUserToTweet.objects.filter(
+            voter=request.user
+        )
+
+        for custom_user_to_tweets in custom_user_to_tweets_list:
+            tweet_dict = {
+                "id": custom_user_to_tweets.tweet.pk,
+                "is_upvote": custom_user_to_tweets.is_upvote,
+            }
+            voted_tweets.append(tweet_dict)
+
     return render(
         request,
         "emojified_tweets_wall_of_fame/wall_of_fame.html",
@@ -83,6 +131,16 @@ def wall_of_shame(request):
 def health(response):
     success_message = {"success": True}
     return HttpResponse(json.dumps(success_message))
+
+
+def about(request):
+    is_user_anonymous = request.user.is_anonymous
+
+    return render(
+        request,
+        "emojified_tweets_wall_of_fame/about.html",
+        {"is_user_anonymous": is_user_anonymous},
+    )
 
 
 def signup(request):
@@ -98,6 +156,20 @@ def signup(request):
             error["message"] = "Passwords did not match."
             error["fields"].append("password")
             error["fields"].append("password_retry")
+
+            return render(
+                request, "emojified_tweets_wall_of_fame/signup.html", {"error": error}
+            )
+
+        # check if user already exists
+        try:
+            matching_username = CustomUser.objects.get(username=username)
+        except CustomUser.DoesNotExist:
+            matching_username = None
+
+        if matching_username is not None:
+            error["message"] = "Username already taken."
+            error["fields"].append("username")
 
             return render(
                 request, "emojified_tweets_wall_of_fame/signup.html", {"error": error}
