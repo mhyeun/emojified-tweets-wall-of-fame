@@ -63,9 +63,14 @@ hr {
 .text-container {
   position: relative;
   text-align: center;
+<<<<<<< HEAD
   overflow-y: inherit;
   vertical-align: middle;
   padding-bottom: 10%;
+=======
+  overflow-y: scroll;
+  padding:5px;
+>>>>>>> 24908c0be1213b36d76e551eb61350f4de5c7efb
   top: 20%;
   left: 50%;
   width: 94%;
