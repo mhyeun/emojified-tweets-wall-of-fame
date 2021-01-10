@@ -106,6 +106,20 @@ def signup(request):
                 request, "emojified_tweets_wall_of_fame/signup.html", {"error": error}
             )
 
+        # check if user already exists
+        try:
+            matching_username = CustomUser.objects.get(username=username)
+        except CustomUser.DoesNotExist:
+            matching_username = None
+
+        if matching_username is not None:
+            error["message"] = "Username already taken."
+            error["fields"].append("username")
+
+            return render(
+                request, "emojified_tweets_wall_of_fame/signup.html", {"error": error}
+            )
+
         new_user = CustomUser.objects.create(
             username=username, password=make_password(password), email=email
         )
