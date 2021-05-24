@@ -1,5 +1,5 @@
 # Emojified Tweets Wall of Fame 👌
-  _Try out our application [here](https://www.emoji-bot.com)!_
+  _Try out our application [here](https://emojifytweets.pythonanywhere.com)!_
 
 <p align=center>
   😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂
